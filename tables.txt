@@ -1,0 +1,72 @@
+Assumptions and Parenthetical Method:
+
+1. EMPLOYEE:
+Relation: Employee (Emp_ID, Tax _ID, Emp_Last_Name, Social_Security_Number, Emp_First_Name,
+Emp_MI, Street, City, State, ZipCode, Phone_number, Date_Of_Birth, Gender, Marital_Status,
+EEO_ code_ID)
+
+Employee table will store all employee records. The table also has EEO_Code_ID attribute which acts as
+a foreign key and tracks the minority category for each employee. Tax_ID attribute will track the tax
+associated with each employee.
+
+
+2. PROJECT:
+Relation: Project (Project_ID, Project_Number, Project_Description, Project_Location,
+Site_Inspector_Name, Emp_Supervisor_ID, Project_Type, Distance_from_Union_Hall)
+
+Project table will store details of all the projects Wilco had and currently has. The Project_Type attribute
+will store information on whether it is a state or a private project. Supervisor ID store Emp_ID of a
+supervisor who’s assigned to the project. Distance from Union Hall attribute will track how far the site
+location is from the union hall. This detail will help us calculate the labor cost for jobs that are distance
+based. Project_Location attribute will store site location details.
+
+3. EEO_CODE:
+Relation: EEO_Code (EEO_Code_ID, EEO_Code)
+
+The EEO_Code table contains information about the breakdown of each EEO category. It has an
+EEO_Code attribute which contains description of each EEO_Code_ID.
+
+4. TAX:
+Relation: Tax (Tax_ID, Federal_tax, State_tax, Social_Security, Other)
+
+The tax table will store details about the tax that is liable to each employee. It contains attributes
+Federal_tax, State_tax, Social_Security_tax and Other category tax.
+
+5. JOB_CLASSIFICATION:
+Relation: Job_Classification (Job_ID, Project_ID, Job_Code, Job_Description, Basic_Hourly_Rate,
+Fringe_Benefits, Overtime_Rate)
+
+Job_Classification table gives details of the job categories available to each employee. It contains
+Project_ID as the foreign key which links to the project table. Foreign key to Project_ID has been added
+as each project has different rate associated to each job. The table also contains attributes like
+Fringe_Benefits and Overtime_Rate which contains information about special privileges available to
+workers.
+
+6. EMPLOYEE_TIME CARD:
+Relation: Employee_Time Card (Emp_ID, Job_ID, Date, Regular_hours, Overtime_hours)
+
+Employee_Time Card is an associative table that links Employee and Job_Classification tables. It has
+attributes Regular_hours and Overtime_hours which lists total hours worked by the employee on a
+particular date and on a particular skill.
+
+7. INVENTORY:
+Relation: Inventory (Inv_ID, Inv_Type_ID, Inv_Name, Inv_Status, Quantity, Maintenance_Schedule)
+
+Inventory table stores details about the inventory such as inventory id and name. Inv_Type_ID acts as
+the foreign key to provide connection with Inv_Type table. Inv_status table identifies whether inventory
+is owned by Wilco or it’s rented. Maintenance_Schedule attribute track when the maintenance is due of
+each equipment.
+
+
+8. INV_TYPE:
+Relation: Inv_Type (Inv_Type_ID, Inv_Description)
+
+Inv_Type table will store details about the information about the type of each Inventory. It has
+Inv_Type_ID as the primary key and an attribute Inv_Description which contains information of each
+Inventory description.
+
+9. PROJECT_INV:
+Relation: Project_Inv (Project_ID, Inv_ID)
+
+Project_Inv is an association table that links Project and Inventory as these table have many to many
+relationship. This table will map which projects are using which inventories.
