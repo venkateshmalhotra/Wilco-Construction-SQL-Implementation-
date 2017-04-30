@@ -1,0 +1,61 @@
+DML SQL Statement
+
+Insert Statements
+
+
+
+1. EEO_CODE table script
+
+INSERT INTO EEO_CODE VALUES ('Black not of Hispanic Origin')
+INSERT INTO EEO_CODE VALUES ('Hispanic')
+INSERT INTO EEO_CODE VALUES ('Asian/Pacific Islander')
+INSERT INTO EEO_CODE VALUES ('American Indian or Alaska Native')
+INSERT INTO EEO_CODE VALUES ('Non- Minority (White)')
+
+
+2. TAX table script
+
+INSERT INTO TAX VALUES (0.225, 0.022, 0.05, 0.00)
+
+3. EMPLOYEE table script
+
+INSERT INTO EMPLOYEE VALUES('239 05 4450','Wilson','Jack','A.','2253 Chapman Ave', 'Denver', 'Ohio',
+45690,'614-575-4801','1963/06/27','M','S',5);
+INSERT INTO EMPLOYEE VALUES('371 05 7184','Wilson','Bob','A.','1493 Hardford Lane', 'Knick','Ohio',
+80226,'216-557-0800','1964/12/19','M','S',5);
+INSERT INTO EMPLOYEE VALUES('394 44 7489','Wilson','Mary','J.','2253 Chapman Ave', 'Denver','Ohio',
+93292,'657-322-4803','1968/11/15','F','S',5);
+INSERT INTO EMPLOYEE VALUES('118 98 5469','Borman','Frank','D.','8945 Langs Ave', 'Denver','Ohio',
+45690,'614-905-4877','1962/08/24','M','S',5);
+INSERT INTO EMPLOYEE VALUES ('839 04 9889','Cyrus','Jacob','F.','1263 Norwalk Ave', 'Chicago','Illinois',
+23823, '630-900-4897','1980/05/14','M','M',5);
+
+4. PROJECT table script
+
+INSERT INTO PROJECT VALUES ('OH-PIK-335-005','Replacement of single-span two-lane bridge (prestressed
+beam type)','5 miles south of Beaver, Ohio on SR 335 (Pike County)','Adam Williams',
+(Select EMP_ID from EMPLOYEE where EMP_FIRST_NAME ='Frank' AND EMP_LAST_NAME=
+'Borman'), 'State', 5.00);
+INSERT INTO PROJECT VALUES ('OH-ROS-335-001','Construct two-lane bridge','2 miles south of Ross,
+Ohio on SR 335 (Ross County)','Jack Gonzalez',(Select EMP_ID from EMPLOYEE where
+EMP_FIRST_NAME='Frank' AND EMP_LAST_NAME= 'Borman'),'State', 2.00);
+
+5. JOB_CLASSIFICATION table script
+
+INSERT INTO JOB_CLASSIFICATION values ('LAB','Labor', 11.00, 3.00, 16.5, 1);
+INSERT INTO JOB_CLASSIFICATION values ('CAR','Carpentry', 12.00, 3.00, 18.00, 1);
+
+6. EMPLOYEE_TIME_CARD table script
+
+INSERT INTO EMPLOYEE_TIME_CARD VALUES
+((Select EMP_ID from EMPLOYEE where SOCIAL_SECURITY_NUMBER = '590 03 3789'), 1, 8,
+0,'05/12/1995')
+INSERT INTO EMPLOYEE_TIME_CARD VALUES
+((Select EMP_ID from EMPLOYEE where SOCIAL_SECURITY_NUMBER = '590 03 3789'), 2, 8,
+0,'05/13/1995')
+INSERT INTO EMPLOYEE_TIME_CARD VALUES
+((Select EMP_ID from EMPLOYEE where SOCIAL_SECURITY_NUMBER = '590 03 3789'), 3, 4,
+0,'05/14/1995')
+INSERT INTO EMPLOYEE_TIME_CARD VALUES
+((Select EMP_ID from EMPLOYEE where SOCIAL_SECURITY_NUMBER = '590 03 3789'), 4, 4,
+4,'05/14/1995')
